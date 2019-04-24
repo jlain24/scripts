@@ -1,9 +1,9 @@
 #!/bin/bash
 
-file="/home/jlen/cersCAMPANAS/datos.csv"
+file="/home/$USER/fichero/datos.csv"
 
-while IFS=';' read email contrato
+while IFS=';' read datos1 datos2
 	do
-		printf "Email: $email Contrato: $contrato \n"
-		ls -l e00a4a1d-a386-4883-bd4b-0c9ac1f03671 | awk '/'$email'/ {print $9}' | xargs -t -I {} mv e00a4a1d-a386-4883-bd4b-0c9ac1f03671/{} e00a4a1d-a386-4883-bd4b-0c9ac1f03671/"$contrato.pdf"
+		printf "Datos1: $datos1 Datos2: $datos2\n"
+		ls -l | awk '/'$datos1'/ {print $9}' | xargs -t -I {} mv {} "$datos2.pdf"
 	done < "$file"
